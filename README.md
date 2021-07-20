@@ -1,24 +1,25 @@
-# README
+## テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### gameテーブル
+| colum  | type       | options                        |
+| ------ | ---------- | ------------------------------ |
+| player | references | null: false, foreign_key: true |
+| job    | references | null: false, foreign_key: true |
 
-Things you may want to cover:
+- belongs_to :player
+- belongs_to :job
 
-* Ruby version
+### playerテーブル
+| colum | type   | options     |
+| ----- | ------ | ----------- |
+| name  | string | null: false |
 
-* System dependencies
+- has_many :games
 
-* Configuration
+### jobテーブル
+| colum | type   | options     |
+| ----- | ------ | ----------- |
+| job   | string | null: false |
+| image |        |             |
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- has_many :games
